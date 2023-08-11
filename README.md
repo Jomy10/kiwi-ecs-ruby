@@ -27,7 +27,7 @@ require 'kiwi-ecs'
 The world is the main object that controls the ecs.
 
 ```ruby
-world = World.new
+world = Kiwi::World.new
 ```
 
 ### Components

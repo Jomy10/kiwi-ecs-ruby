@@ -1,9 +1,9 @@
-require_relative '../lib/world.rb'
+require_relative '../lib/kiwi-ecs.rb'
 require 'test/unit'
 
 class TestEntityIds < Test::Unit::TestCase
   def test_reuse_entity_ids
-    world = World.new
+    world = Kiwi::World.new
 
     id1 = world.spawn(Pos.new(0, 10))
     world.set_flag id1, 0

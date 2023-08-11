@@ -1,9 +1,9 @@
-require_relative '../lib/world.rb'
+require_relative '../lib/kiwi-ecs.rb'
 require 'test/unit'
 
 class TestFlags < Test::Unit::TestCase
   def test_flags
-    world = World.new
+    world = Kiwi::World.new
 
     id = world.spawn
 
@@ -19,7 +19,7 @@ class TestFlags < Test::Unit::TestCase
   end
 
   def test_has_flags
-    world = World.new
+    world = Kiwi::World.new
 
     id = world.spawn
 

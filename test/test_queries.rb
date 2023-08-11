@@ -4,7 +4,7 @@ Vel = Struct.new :x, :y
 
 class TestQuery < Test::Unit::TestCase
   def test_query
-    world = World.new
+    world = Kiwi::World.new
 
     world.spawn
 
@@ -23,7 +23,7 @@ class TestQuery < Test::Unit::TestCase
   end
 
   def test_query_mut
-    world = World.new
+    world = Kiwi::World.new
 
     id1 = world.spawn Pos.new(0, 10)
     id2 = world.spawn Vel.new(4, 11), Pos.new(9, 15)
@@ -40,7 +40,7 @@ class TestQuery < Test::Unit::TestCase
   end
 
   def test_collect
-    world = World.new
+    world = Kiwi::World.new
 
     world.spawn Pos.new(0, 10)
     world.spawn

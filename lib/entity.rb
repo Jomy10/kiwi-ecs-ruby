@@ -1,6 +1,9 @@
 require 'set'
 require_relative 'bitmap'
 
+module Kiwi
+module Internal
+
 Entity = Struct.new(:archId, :archRow)
 
 class EntityStore
@@ -99,4 +102,7 @@ class EntityStore
       !@deadEntities.include?(id)
     end
   end
+end
+
+end
 end

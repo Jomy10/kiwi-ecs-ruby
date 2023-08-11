@@ -1,4 +1,4 @@
-require_relative '../lib/world.rb'
+require_relative '../lib/kiwi-ecs.rb'
 require 'test/unit'
 
 Pos = Struct.new(:x, :y)
@@ -7,7 +7,7 @@ Name = Struct.new(:name)
 class TestSpawn < Test::Unit::TestCase
 
   def test_spawn
-    world = World.new
+    world = Kiwi::World.new
 
     expectedPos = Pos.new(1, 4)
     expectedName = Name.new("Hello world")
@@ -21,7 +21,7 @@ class TestSpawn < Test::Unit::TestCase
   end
 
   def test_spawn2
-    world = World.new
+    world = Kiwi::World.new
 
     (0...1000).each do |i|
       world.spawn(Name.new("Hello world - #{i}"))
@@ -33,7 +33,7 @@ class TestSpawn < Test::Unit::TestCase
   end
 
   def test_has_component
-    world = World.new
+    world = Kiwi::World.new
     id = world.spawn Name.new("Hello world")
     assert(world.has_component(id, Name))
     assert(!world.has_component(id, Pos))

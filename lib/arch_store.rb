@@ -1,5 +1,9 @@
 require_relative 'archetype'
 
+module Kiwi
+# Internal methods not meant for outside use
+module Internal
+
 class ArchStore
   # [[Integer]:Integer]
   attr_accessor :compMap
@@ -27,4 +31,7 @@ class ArchStore
       return id
     end
   end
+end
+
+end
 end

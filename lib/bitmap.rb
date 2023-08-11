@@ -1,3 +1,6 @@
+module Kiwi
+module Internal
+
 # TODO: actual bitmap implementation
 class Bitmap
   def initialize
@@ -29,4 +32,7 @@ class Bitmap
       @flags[i] = false
     end
   end
+end
+
+end
 end

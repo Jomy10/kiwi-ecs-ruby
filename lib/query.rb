@@ -1,3 +1,5 @@
+module Kiwi
+module Internal
 module Query
   # @return [enumerator<Integer>]
   def query_ids
@@ -53,4 +55,6 @@ module Query
       return result.to_enum
     end
   end
+end
+end
 end
