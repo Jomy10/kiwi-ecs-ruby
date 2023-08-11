@@ -38,4 +38,19 @@ class TestQuery < Test::Unit::TestCase
       end
     end
   end
+
+  def test_collect
+    world = World.new
+
+    world.spawn Pos.new(0, 10)
+    world.spawn
+    world.spawn Pos.new(1, 11), Vel.new(2, 12)
+    world.spawn Vel.new(3, 13)
+
+    puts "Query:"
+    world.query(Pos).each do |a|
+      puts a
+    end
+    assert_equal(2, world.query(Pos).count)
+  end
 end

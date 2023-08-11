@@ -1,4 +1,4 @@
-require_relative '../src/world.rb'
+require_relative '../lib/world.rb'
 require 'test/unit'
 
 Pos = Struct.new(:x, :y)

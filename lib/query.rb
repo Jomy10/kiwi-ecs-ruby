@@ -1,32 +1,19 @@
 module Query
   # @return [enumerator<Integer>]
   def query_ids
-    return @entityStore.entity_ids
+    if block_given?
+      @entityStore.entity_ids.each do |id|
+        yield id
+      end
+    else
+      return @entityStore.entity_ids
+    end
   end
 
-  # def query(*componentType)
-  #   componentIds = componentType.map { |type| type.object_id }
-    
-  #   @archStore.compMap
-  #     .filter do |(archComponents, _)|
-  #       componentIds.filter { |id| !archComponents.include?(id) }.count == 0
-  #     end
-  #     .flat_map do |(_, archId)|
-  #       archetype = @archStore.get(archId)
-  #       entity_ids = @entityStore.entity_ids
-  #       componentRows = archetype.components_from_ids(componentIds)
-  #       entity_ids
-  #         .map do |entId|
-  #           componentRows.map do |componentRow|
-  #             componentRow[entId]
-  #           end
-  #         end
-  #     end
-  # end
   def query(*componentType)
     componentIds = componentType.map { |type| type.object_id }
 
-    @archStore.compMap
+    result = @archStore.compMap
       .filter do |archComponents, _|
         (componentIds - archComponents).empty?
       end
@@ -35,15 +22,20 @@ module Query
           .get(archId)
           .active_components(componentIds)
       end
-      .each do |a|
+
+    if block_given?
+      result.each do |a|
         yield a
       end
+    else
+      return result.to_enum
+    end
   end
 
   def query_with_ids(*componentType)
     componentIds = componentType.map { |type| type.object_id }
 
-    @archStore.compMap
+    result = @archStore.compMap
       .filter do |archComponents, _|
         (componentIds - archComponents).empty?
       end
@@ -52,8 +44,13 @@ module Query
           .get(archId)
           .components_and_ids(componentIds)
       end
-      .each do |a|
+
+    if block_given?
+      result.each do |a|
         yield a
       end
+    else
+      return result.to_enum
+    end
   end
 end
