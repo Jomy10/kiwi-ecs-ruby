@@ -4,6 +4,8 @@ Kiwi is a versatile entity component system focussing on fast iteration and a ni
 
 To get started, read the [usage guide](#usage) below.
 
+[![Tests](https://github.com/Jomy10/kiwi-ecs-ruby/actions/workflows/tests.yml/badge.svg)](https://github.com/Jomy10/kiwi-ecs-ruby/actions/workflows/tests.yml)
+
 ## Installation
 
 This library is currently not on ruby gems, but will arrive shortly.
