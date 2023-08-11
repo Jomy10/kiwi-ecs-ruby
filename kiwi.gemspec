@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = "kiwi-ecs"
-  s.version = "0.0.1"
+  s.version = "0.0.2"
   s.summary = "An entity component system with a nice api, fit for a variety of use cases"
   s.description = File.read "README.md"
   s.authors = ["Jonas Everaert"]
