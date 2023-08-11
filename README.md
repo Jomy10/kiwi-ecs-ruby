@@ -8,14 +8,16 @@ To get started, read the [usage guide](#usage) below.
 
 ## Installation
 
-This library is currently not on ruby gems, but will arrive shortly.
+The library is available from [ruby gems](https://rubygems.org/gems/kiwi-ecs):
 
-To use it now, simple `git clone https://github.com/jomy10/kiwi-ecs-ruby`.
+```sh
+gem install kiwi-ecs
+```
 
-Then incude the world.rb file in your ruby files like so:
+To use it in your ruby source files:
 
 ```ruby
-require_relative 'kiwi-ecs-ruby/src/world.rb'
+require 'kiwi-ecs'
 ```
 
 ## Usage
@@ -119,7 +121,13 @@ world.has_flag(id, Flags::Player)
 #### Filtering queries with flags
 
 ```ruby
-# TODO
+world.query_with_ids(Pos)
+  .filter do |id, pos|
+    world.has_flag(id, Flags::Player)
+  end
+  .each do |id, pos|
+    # Do something with the filtered query
+  end
 ```
 
 The `hasFlags` function is also available for when you want to check multiple flags.
