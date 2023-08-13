@@ -1,7 +1,7 @@
-ComponentColumn = Struct.new(:components)
-
 module Kiwi
   module Internal
+    ComponentColumn = Struct.new(:components)
+    
     class Archetype
       # @params [Array<Integer>] componentIds
       def initialize(componentIds)

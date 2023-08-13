@@ -53,4 +53,17 @@ class TestQuery < Test::Unit::TestCase
     end
     assert_equal(2, world.query(Pos).count)
   end
+
+  def test_query_one
+    world = Kiwi::World.new
+
+    world.spawn(Pos.new(0, 0))
+
+    world.query(Pos) do |pos|
+      pos.x += 5
+      pos.y += 7
+
+      assert_equal(Pos.new(5, 7), pos)
+    end
+  end
 end

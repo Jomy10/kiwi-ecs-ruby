@@ -25,6 +25,12 @@ module Query
           .active_components(componentIds)
       end
 
+    if componentType.size == 1
+      result = result.map do |c|
+        c[0]
+      end
+    end
+
     if block_given?
       result.each do |a|
         yield a

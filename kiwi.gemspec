@@ -1,9 +1,10 @@
 Gem::Specification.new do |s|
   s.name = "kiwi-ecs"
-  s.version = "0.1.0"
+  s.version = "0.1.1"
   s.summary = "An entity component system with a nice api, fit for a variety of use cases"
   s.description = "== Description
-  Kiwi is a versatile entity component system that is focussed on fast iteration and a nice api"
+
+#{File.read("README.md").lines[2...]}"
   s.extra_rdoc_files = ['README.md']
   s.authors = ["Jonas Everaert"]
   s.files = Dir.glob("lib/**/*.rb")
